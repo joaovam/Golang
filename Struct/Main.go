@@ -1,21 +1,38 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	Carro "testes/Struct/carro"
+)
 
-//	"testes/classes/carro"
+
 
 func main(){
 	
-// 	auto := carro.Carro{Modelo:"Taycan",Ano:2020,Preco:909000.900,Marca:"Porsche"}
-// 	auto.Write()
-// fmt.Println("Finalizado")
-	done:= make(chan string)
-	//fmt.Println(teste(5))
-	fmt.Printf("%T",done)
 
+	carro:= new(Carro.Carro)
+	carro.Ano = 2005
+	carro.Marca = "Fiat"
+	carro.Modelo = "Palio"
+	carro.Preco = 10000.500
+
+	carro2 := new(Carro.Carro)	
+	carro2.Ano = 2020
+	carro2.Marca = "Toyota"
+	carro2.Modelo = "Hilux"
+	carro2.Preco = 99800.800
+	
+	fmt.Println("Carro")
+	carro.Write()
+	fmt.Println("Carro2")
+	carro2.Write()
+
+	carro2 = carro.Swap(carro2)
+
+	fmt.Println("Carro")
+	carro.Write()
+	fmt.Println("Carro2")
+	carro2.Write()
 	
 }
 
-func teste(t int) int{
-	return t *2;
-}
